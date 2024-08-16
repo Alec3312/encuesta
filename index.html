@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción de Atencion al Cliente NEKONEKO</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="survey-container">
+        <h2>Encuesta de Satisfacción de Atencion al Cliente NEKONEKO</h2>
+
+        <form id="surveyForm">
+            <div class="survey-question">
+                <label>1. ¿Qué tan satisfecho estás con la calidad del servicio?</label><br>
+                <select name="servicio" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Muy satisfecho">Muy satisfecho</option>
+                    <option value="Satisfecho">Satisfecho</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Insatisfecho">Insatisfecho</option>
+                    <option value="Muy insatisfecho">Muy insatisfecho</option>
+                </select>
+            </div>
+
+            <div class="survey-question">
+                <label>2. ¿Qué tan rápido se resolvió tu problema?</label><br>
+                <select name="rapidez" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Muy rápido">Muy rápido</option>
+                    <option value="Rápido">Rápido</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Lento">Lento</option>
+                    <option value="Muy lento">Muy lento</option>
+                </select>
+            </div>
+
+            <div class="survey-question">
+                <label>3. ¿Cómo calificarías la atención al cliente?</label><br>
+                <select name="atencion" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Buena">Buena</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Mala">Mala</option>
+                    <option value="Muy mala">Muy mala</option>
+                </select>
+            </div>
+
+            <div class="survey-question">
+                <label>4. ¿Recomendarías nuestros servicios a otras personas?</label><br>
+                <select name="recomendacion" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Definitivamente sí">Definitivamente sí</option>
+                    <option value="Probablemente sí">Probablemente sí</option>
+                    <option value="No estoy seguro">No estoy seguro</option>
+                    <option value="Probablemente no">Probablemente no</option>
+                    <option value="Definitivamente no">Definitivamente no</option>
+                </select>
+            </div>
+
+            <button type="submit">Enviar Encuesta</button>
+        </form>
+
+        <div id="resultados" class="results" style="display: none;">
+            <h3>Resultados de la Encuesta:</h3>
+            <p><strong>Calidad del servicio:</strong> <span id="resultadoServicio"></span></p>
+            <p><strong>Rapidez en la resolución:</strong> <span id="resultadoRapidez"></span></p>
+            <p><strong>Atención al cliente:</strong> <span id="resultadoAtencion"></span></p>
+            <p><strong>Recomendación:</strong> <span id="resultadoRecomendacion"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("surveyForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var servicio = document.querySelector("select[name='servicio']").value;
+            var rapidez = document.querySelector("select[name='rapidez']").value;
+            var atencion = document.querySelector("select[name='atencion']").value;
+            var recomendacion = document.querySelector("select[name='recomendacion']").value;
+            
+            document.getElementById("resultadoServicio").textContent = servicio;
+            document.getElementById("resultadoRapidez").textContent = rapidez;
+            document.getElementById("resultadoAtencion").textContent = atencion;
+            document.getElementById("resultadoRecomendacion").textContent = recomendacion;
+
+            document.getElementById("resultados").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
